@@ -4,6 +4,9 @@ const cases = {
   king: ["Karambit | Doppler", "Butterfly Knife | Fade", "M9 Bayonet | Marble Fade", "AWP | Dragon Lore", "AK-47 | Fire Serpent"]
 };
 
+// Dodajemy obiekt audio
+const audio = new Audio('assets/case_opening.mp3'); // Zmień ścieżkę na odpowiednią, jeśli jest inna
+
 function openCase(caseType) {
   // Disable button while animation is running
   const caseButton = document.getElementById('caseButton');
@@ -11,6 +14,9 @@ function openCase(caseType) {
   
   // Animacja obracania
   caseButton.style.animation = 'spin 2s ease-out';
+
+  // Odtwarzamy dźwięk
+  audio.play();Case opening.mp3
 
   // Po zakończeniu animacji losujemy skórkę
   setTimeout(() => {
@@ -26,3 +32,4 @@ function openCase(caseType) {
     caseButton.style.animation = '';  // Resetowanie animacji
   }, 2000); // Czas trwania animacji (2 sekundy)
 }
+
