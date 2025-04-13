@@ -5,8 +5,24 @@ const cases = {
 };
 
 function openCase(caseType) {
-  const items = cases[caseType];
-  const randomIndex = Math.floor(Math.random() * items.length);
-  const skin = items[randomIndex];
-  document.getElementById("result").innerText = `🎉 Wylosowałeś: ${skin}!`;
+  // Disable button while animation is running
+  const caseButton = document.getElementById('caseButton');
+  caseButton.disabled = true;
+  
+  // Animacja obracania
+  caseButton.style.animation = 'spin 2s ease-out';
+
+  // Po zakończeniu animacji losujemy skórkę
+  setTimeout(() => {
+    const items = cases[caseType];
+    const randomIndex = Math.floor(Math.random() * items.length);
+    const skin = items[randomIndex];
+
+    // Pokazanie wyniku
+    document.getElementById("result").innerText = `🎉 Wylosowałeś: ${skin}!`;
+
+    // Ponowne włączenie przycisku po animacji
+    caseButton.disabled = false;
+    caseButton.style.animation = '';  // Resetowanie animacji
+  }, 2000); // Czas trwania animacji (2 sekundy)
 }
