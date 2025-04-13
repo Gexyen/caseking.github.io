@@ -16,7 +16,7 @@ function openCase(caseType) {
   caseButton.style.animation = 'spin 2s ease-out';
 
   // Odtwarzamy dźwięk
-  audio.play();Case opening.mp3
+const audio = new Audio('case_opening.mp3');  // If it's in the root
 
   // Po zakończeniu animacji losujemy skórkę
   setTimeout(() => {
